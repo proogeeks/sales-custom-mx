@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- SEND PENDING QUOTATIONS -->
+        <record id="send_pending_quotations_cron" forcecreate="True" model="ir.cron">
+            <field name="name">SEND PENDING QUOTATIONS</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="doall" eval="False"/>
+            <field name="active" eval="True"/>
+            <field name="interval_number">12</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.send_pending_quotations_action()</field>
+        </record>
+
+    </data>
+</odoo>
